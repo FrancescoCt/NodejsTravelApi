@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products Forms</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+        <a class="navbar-brand" href="https://francescoct.github.io/">Francesco Catania</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Products Forms <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="CustomersForms.html">Customers Forms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="OrdersForms.html">Orders Forms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">API Helper</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://francescoct.github.io/portfolio/">Portfolio</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Titolo -->
+    <div class="container mt-5">
+        <h1 class="mb-4 text-center">Product Forms</h1>
+
+        <!-- Form 1 -->
+        <form id="form1" class="justify-content-center m-5 border border-primary rounded p-3">
+            <div class="form-group mr-2">
+                <label for="input1" class="mr-2">Name Product:</label>
+                <input type="text" id="input1" name="input1" class="form-control" placeholder="Travel_to_Albania" enctype="multipart/form-data">
+                <small id="createHelp" class="form-text text-muted text-center ">Write the name of the new Product to be saved in DB</small>
+            </div>
+            <button type="submit" class="btn btn-success">Create Product</button>
+            
+        </form>
+        <div id="message1" class="mt-3"></div>
+        
+        <!-- Form 2 -->
+        <form id="form2" class="justify-content-center m-5 border border-primary rounded p-3">
+            <div class="form-group mr-2">
+                <label for="input2a" class="mr-2">Id Product:</label>
+                <input type="text" id="input2a" name="input2" class="form-control" placeholder="5">
+
+                <label for="input2b" class="mr-2">Name Product:</label>
+                <input type="text" id="input2b" name="input2" class="form-control" placeholder="Liechstein">
+                <small id="updateHelp" class="form-text text-muted text-center ">Write id and name of existent Product to be saved in DB</small>
+        
+            </div>
+            <button type="submit" class="btn btn-warning">Update Product</button>
+        </form>
+        <div id="message2" class="mt-3"></div>
+        
+        <!-- Form 3 -->
+        <form id="form3" class="justify-content-center m-5 border border-primary rounded p-3">
+            <div class="form-group mr-2">
+                <label for="input3" class="mr-2">Id Product:</label>
+                <input type="text" id="input3" name="input3" class="form-control" placeholder="2">
+                <small id="deleteHelp" class="form-text text-muted text-center ">Write the id of existent Product to be deleted from DB</small>
+            </div>
+            <button type="submit" class="btn btn-danger">Delete Product</button>
+        </form>
+        <div id="message3" class="mt-3"></div>
+
+        <!-- Form 4 -->
+        <form id="form4" class="justify-content-center m-5 border border-primary rounded p-3">
+            <div class="form-group mr-2">
+                <span class="form-text text-muted text-center ">Show all products saved in db</span>
+            </div>
+            <a href="http://localhost:9600/api/products" class="btn btn-primary" target="_blank">Get Products</a>
+        </form>
+
+        
+        
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        //Create
+        document.getElementById('form1').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const input1 = document.getElementById('input1').value;
+            const messageDiv = document.getElementById('message1');
+            fetch('http://localhost:9600/api/products', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name: input1 })
+            })
+            .then(response =>response.json())
+            .then(data => {
+                if(data.message == "Product created.") {
+                    messageDiv.textContent = data.message;
+                    messageDiv.className = 'alert alert-success';
+                }
+                else{
+                    messageDiv.textContent = 'Error creation Product';
+                    messageDiv.className = 'alert alert-danger';
+                }
+                console.log('Response Form 1:', data)
+            })
+            .catch(error => {console.error('Errore Form 1:', error)
+                messageDiv.textContent = 'Error creation Product';
+                messageDiv.className = 'alert alert-danger';
+            });
+        });
+        //Update
+        document.getElementById('form2').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const input2a = document.getElementById('input2a').value;
+            const input2b = document.getElementById('input2b').value;
+            const messageDiv = document.getElementById('message2');
+            fetch('http://localhost:9600/api/products/'+input2a, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ id: input2a, name: input2b })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.message == "Product updated.") {
+                    messageDiv.textContent = data.message;
+                    messageDiv.className = 'alert alert-success';
+                }
+                else{
+                    messageDiv.textContent = 'Error update Product';
+                    messageDiv.className = 'alert alert-danger';
+                }
+                console.log('Response Form 2:', data)})
+            .catch(error => {console.error('Errore Form 2:', error)
+                messageDiv.textContent = 'Error update Product';
+                messageDiv.className = 'alert alert-danger';
+            });
+        });
+
+        //Delete
+        document.getElementById('form3').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const input3 = document.getElementById('input3').value;
+            const messageDiv = document.getElementById('message3');
+            fetch('http://localhost:9600/api/products/'+input3, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ id: input3 })
+            })
+            .then(response => response.json())
+            .then(data => {console.log('Response Form 3:', data)
+                if(data.message == "Product deleted.") {
+                    messageDiv.textContent = data.message;
+                    messageDiv.className = 'alert alert-success';
+                }
+                else{
+                    messageDiv.textContent = 'Error delete Product';
+                    messageDiv.className = 'alert alert-danger';
+                }
+            })
+            .catch(error => {console.error('Errore Form 3:', error)
+                messageDiv.textContent = 'Error delete Product';
+                messageDiv.className = 'alert alert-danger';
+            });
+        });
+    </script>
+</body>
+</html>

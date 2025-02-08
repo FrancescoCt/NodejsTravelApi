@@ -1,0 +1,25 @@
+//Note per lo sviluppatore, da inserire nel ReadMe
+
+//Installare moduli e salvarli nel package
+npm install express --save
+npm install multer --save
+npm install mysql --save
+npm install dotenv --save
+
+//Disinstallare un modulo ed eliminarlo dal package
+npm uninstall mysql
+
+//Installare tutte le dipendenze senza un node_modules dal package.json
+npm install
+
+//Come funziona
+- Avviare l'applicazione col comando: 
+node app.js
+
+- Sul terminale dovresti vedere il messaggio del server in esecuzione:
+Server running at http://localhost:9600/
+Connected to the MySQL database.
+
+- Una prova di funzionamento può essere svolta con il seguente url di esempio preso dalla route:
+http://localhost:9600/api/products
+

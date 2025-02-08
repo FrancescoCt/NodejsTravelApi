@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers Forms</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+        <a class="navbar-brand" href="https://francescoct.github.io/">Francesco Catania</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Customers Forms <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ProductsForms.html">Products Forms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="OrdersForms.html">Orders Forms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">API Helper</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://francescoct.github.io/portfolio/">Portfolio</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Titolo -->
+    <div class="container mt-5">
+        <h1 class="mb-4 text-center">Customer Forms</h1>
+
+        <!-- Form 1 -->
+        <form id="form1" class="justify-content-center m-5 border border-primary rounded p-3">
+            <div class="form-group mr-2">
+                <label for="input1a" class="mr-2">FirstName Customer:</label>
+                <input type="text" id="input1a" name="input1" class="form-control" placeholder="John" enctype="multipart/form-data">
+                <small class="form-text text-muted text-center ">Write the firstname of the new Customer to be saved in DB</small>
+
+                <label for="input1b" class="mr-2">LastName Customer:</label>
+                <input type="text" id="input1b" name="input1" class="form-control" placeholder="Doe" enctype="multipart/form-data">
+                <small class="form-text text-muted text-center ">Write the lastname of the new Customer to be saved in DB</small>
+
+                <label for="input1c" class="mr-2">Email Customer:</label>
+                <input type="text" id="input1c" name="input1" class="form-control" placeholder="john@gmail" enctype="multipart/form-data">
+                <small class="form-text text-muted text-center ">Write the email of the new Customer to be saved in DB</small>
+            </div>
+            <button type="submit" class="btn btn-success">Create Customer</button>
+            
+        </form>
+        <div id="message1" class="mt-3"></div>
+        
+        <!-- Form 2 -->
+        <form id="form2" class="justify-content-center m-5 border border-primary rounded p-3">
+            <div class="form-group mr-2">
+                <label for="input2a" class="mr-2">Id Customer:</label>
+                <input type="text" id="input2a" name="input2" class="form-control" placeholder="5">
+
+                <label for="input2b" class="mr-2">FirstName Customer:</label>
+                <input type="text" id="input2b" name="input2" class="form-control" placeholder="John">
+                <small id="updateHelp" class="form-text text-muted text-center ">Write id and firstname of existent Customer to be saved in DB</small>
+                
+                <label for="input2c" class="mr-2">LastName Customer:</label>
+                <input type="text" id="input2c" name="input2" class="form-control" placeholder="Doe" enctype="multipart/form-data">
+                <small class="form-text text-muted text-center ">Write the lastname of the new Customer to be saved in DB</small>
+
+                <label for="input2d" class="mr-2">Email Customer:</label>
+                <input type="text" id="input2d" name="input2" class="form-control" placeholder="john@gmail.com" enctype="multipart/form-data">
+                <small class="form-text text-muted text-center ">Write the email of the new Customer to be saved in DB</small>
+
+            </div>
+            <button type="submit" class="btn btn-warning">Update Customer</button>
+        </form>
+        <div id="message2" class="mt-3"></div>
+        
+        <!-- Form 3 -->
+        <form id="form3" class="justify-content-center m-5 border border-primary rounded p-3">
+            <div class="form-group mr-2">
+                <label for="input3" class="mr-2">Id Customer:</label>
+                <input type="text" id="input3" name="input3" class="form-control" placeholder="2">
+                <small id="deleteHelp" class="form-text text-muted text-center ">Write the id of existent Customer to be deleted from DB</small>
+            </div>
+            <button type="submit" class="btn btn-danger">Delete Customer</button>
+        </form>
+        <div id="message3" class="mt-3"></div>
+
+        <!-- Form 4 -->
+        <form id="form4" class="justify-content-center m-5 border border-primary rounded p-3">
+            <div class="form-group mr-2">
+                <span class="form-text text-muted text-center ">Show all customers saved in db</span>
+            </div>
+            <a href="http://localhost:9600/api/customers" class="btn btn-primary" target="_blank">Get Customers</a>
+        </form>
+
+        
+        
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        //Create
+        document.getElementById('form1').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const input1a = document.getElementById('input1a').value;
+            const input1b = document.getElementById('input1b').value;
+            const input1c = document.getElementById('input1c').value;
+            const messageDiv = document.getElementById('message1');
+            fetch('http://localhost:9600/api/customers', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ firstName: input1a, lastName: input1b, email: input1c })
+            })
+            .then(response =>response.json())
+            .then(data => {
+                if(data.message == "Customer created.") {
+                    messageDiv.textContent = data.message;
+                    messageDiv.className = 'alert alert-success';
+                }
+                else{
+                    messageDiv.textContent = 'Error creation Customer';
+                    messageDiv.className = 'alert alert-danger';
+                }
+                console.log('Response Form 1:', data)
+            })
+            .catch(error => {console.error('Errore Form 1:', error)
+                messageDiv.textContent = 'Error creation Customer';
+                messageDiv.className = 'alert alert-danger';
+            });
+        });
+        //Update
+        document.getElementById('form2').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const input2a = document.getElementById('input2a').value;
+            const input2b = document.getElementById('input2b').value;
+            const input2c = document.getElementById('input2c').value;
+            const input2d = document.getElementById('input2d').value;
+
+            const messageDiv = document.getElementById('message2');
+            fetch('http://localhost:9600/api/customers/'+input2a, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ id: input2a, firstName: input2b, lastName: input2c, email: input2d })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.message == "Customer updated.") {
+                    messageDiv.textContent = data.message;
+                    messageDiv.className = 'alert alert-success';
+                }
+                else{
+                    messageDiv.textContent = 'Error update Customer';
+                    messageDiv.className = 'alert alert-danger';
+                }
+                console.log('Response Form 2:', data)})
+            .catch(error => {console.error('Errore Form 2:', error)
+                messageDiv.textContent = 'Error update Customer';
+                messageDiv.className = 'alert alert-danger';
+            });
+        });
+
+        //Delete
+        document.getElementById('form3').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const input3 = document.getElementById('input3').value;
+            const messageDiv = document.getElementById('message3');
+            fetch('http://localhost:9600/api/customers/'+input3, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ id: input3 })
+            })
+            .then(response => response.json())
+            .then(data => {console.log('Response Form 3:', data)
+                if(data.message == "Customer deleted.") {
+                    messageDiv.textContent = data.message;
+                    messageDiv.className = 'alert alert-success';
+                }
+                else{
+                    messageDiv.textContent = 'Error delete Customer';
+                    messageDiv.className = 'alert alert-danger';
+                }
+            })
+            .catch(error => {console.error('Errore Form 3:', error)
+                messageDiv.textContent = 'Error delete Customer';
+                messageDiv.className = 'alert alert-danger';
+            });
+        });
+    </script>
+</body>
+</html>

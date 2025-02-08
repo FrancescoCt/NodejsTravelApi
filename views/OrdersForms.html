@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders Forms</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+        <a class="navbar-brand" href="https://francescoct.github.io/">Francesco Catania</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Orders Forms <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ProductsForms.html">Products Forms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="CustomersForms.html">Customers Forms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">API Helper</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://francescoct.github.io/portfolio/">Portfolio</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Titolo -->
+    <div class="container mt-5">
+        <h1 class="mb-4 text-center">Order Forms</h1>
+
+        <!-- Form 1 -->
+        <form id="form1" class="justify-content-center m-5 border border-primary rounded p-3">
+            <div class="form-group mr-2">
+                <label for="input1a" class="mr-2">Date Order:</label>
+                <input type="date" id="input1a" name="input1" class="form-control" placeholder="2022/07/24" enctype="multipart/form-data">
+                <small class="form-text text-muted text-center ">Write the data of the new Order to be saved in DB</small>
+
+            </div>
+            <button type="submit" class="btn btn-success">Create Order</button>
+            
+        </form>
+        <div id="message1" class="mt-3"></div>
+        <!-- Form 1.1 -->
+        <form id="form1a" class="justify-content-center m-5 border border-primary rounded p-3">
+            <div class="form-group mr-2">
+                <label for="input11a" class="mr-2">Order Id:</label>
+                <input type="text" id="input11a" name="input1" class="form-control" placeholder="1" enctype="multipart/form-data">
+                <small class="form-text text-muted text-center ">Write the Id of Order you want to add the Customer to.</small>
+                
+                <label for="input11b" class="mr-2">Customer Id:</label>
+                <input type="text" id="input11b" name="input1" class="form-control" placeholder="1" enctype="multipart/form-data">
+                <small class="form-text text-muted text-center ">Write the Id of the Customer.</small>
+
+            </div>
+            <button type="submit" class="btn btn-success">Add Customer to Order</button>
+            
+        </form>
+        <div id="message1a" class="mt-3"></div>
+
+        <!-- Form 1.2 -->
+        <form id="form1b" class="justify-content-center m-5 border border-primary rounded p-3">
+            <div class="form-group mr-2">
+                <label for="input12a" class="mr-2">Order Id:</label>
+                <input type="text" id="input12a" name="input1" class="form-control" placeholder="1" enctype="multipart/form-data">
+                <small class="form-text text-muted text-center ">Write the Id of Order you want to add the Product to.</small>
+                
+                <label for="input12b" class="mr-2">Product Id:</label>
+                <input type="text" id="input12b" name="input1" class="form-control" placeholder="1" enctype="multipart/form-data">
+                <small class="form-text text-muted text-center ">Write the Id of the Product.</small>
+
+            </div>
+            <button type="submit" class="btn btn-success">Add Product to Order</button>
+            
+        </form>
+        <div id="message1b" class="mt-3"></div>
+        
+        <!-- Form 2 -->
+        <form id="form2" class="justify-content-center m-5 border border-primary rounded p-3">
+            <div class="form-group mr-2">
+                <label for="input2a" class="mr-2">Id Order:</label>
+                <input type="text" id="input2a" name="input2" class="form-control" placeholder="5">
+
+                <label for="input2b" class="mr-2">Date Order:</label>
+                <input type="date" id="input2b" name="input2" class="form-control" placeholder="2022/07/24">
+                <small id="updateHelp" class="form-text text-muted text-center ">Write id and date of existent Order to be saved in DB</small>
+                
+            </div>
+            <button type="submit" class="btn btn-warning">Update Order</button>
+        </form>
+        <div id="message2" class="mt-3"></div>
+
+        <!-- Form 2.1 -->
+        <form id="form2a" class="justify-content-center m-5 border border-primary rounded p-3">
+            <div class="form-group mr-2">
+                <label for="input21a" class="mr-2">Id Order:</label>
+                <input type="text" id="input21a" name="input2" class="form-control" placeholder="5">
+
+                <label for="input21b" class="mr-2">New Customer Id:</label>
+                <input type="text" id="input21b" name="input2" class="form-control" placeholder="1">
+                <small id="updateHelp" class="form-text text-muted text-center ">Write id of the new Customer to be associated to existent Order </small>
+                
+                <label for="input21c" class="mr-2">Old Customer Id:</label>
+                <input type="text" id="input21c" name="input2" class="form-control" placeholder="1">
+                <small id="updateHelp" class="form-text text-muted text-center ">Write id of the old Customer to be exchanged within the Order </small>
+                
+            </div>
+            <button type="submit" class="btn btn-warning">Update Customer Order</button>
+        </form>
+        <div id="message2a" class="mt-3"></div>
+
+        <!-- Form 2.2 -->
+        <form id="form2b" class="justify-content-center m-5 border border-primary rounded p-3">
+            <div class="form-group mr-2">
+                <label for="input22a" class="mr-2">Id Order:</label>
+                <input type="text" id="input22a" name="input2" class="form-control" placeholder="5">
+
+                <label for="input22b" class="mr-2">New Product Id:</label>
+                <input type="text" id="input22b" name="input2" class="form-control" placeholder="1">
+                <small id="updateHelp" class="form-text text-muted text-center ">Write id of the new Product to be associated to existent Order </small>
+                
+                <label for="input22c" class="mr-2">Old Product Id:</label>
+                <input type="text" id="input22c" name="input2" class="form-control" placeholder="1">
+                <small id="updateHelp" class="form-text text-muted text-center ">Write id of the old Product to be exchanged within the Order </small>
+                
+            </div>
+            <button type="submit" class="btn btn-warning">Update Product Order</button>
+        </form>
+        <div id="message2b" class="mt-3"></div>
+        
+        <!-- Form 3 -->
+        <form id="form3" class="justify-content-center m-5 border border-primary rounded p-3">
+            <div class="form-group mr-2">
+                <label for="input3" class="mr-2">Id Order:</label>
+                <input type="text" id="input3" name="input3" class="form-control" placeholder="2">
+                <small id="deleteHelp" class="form-text text-muted text-center ">Write the id of existent Order to be deleted from DB</small>
+            </div>
+            <button type="submit" class="btn btn-danger">Delete Order</button>
+        </form>
+        <div id="message3" class="mt-3"></div>
+
+        <!-- Form 3.1 -->
+        <form id="form3a" class="justify-content-center m-5 border border-primary rounded p-3">
+            <div class="form-group mr-2">
+                <label for="input31a" class="mr-2">Id Order:</label>
+                <input type="text" id="input31a" name="input3" class="form-control" placeholder="2">
+                <small id="deleteHelp" class="form-text text-muted text-center ">Write the id of existent Order to be deleted from DB</small>
+                
+                <label for="input31b" class="mr-2">Id Customer:</label>
+                <input type="text" id="input31b" name="input3" class="form-control" placeholder="2">
+                <small id="deleteHelp" class="form-text text-muted text-center ">Write the id of existent Customer within Order to be deleted from DB</small>
+            
+            </div>
+            <button type="submit" class="btn btn-danger">Delete Customer From Order</button>
+        </form>
+        <div id="message3a" class="mt-3"></div>
+
+        <!-- Form 3.2 -->
+        <form id="form3b" class="justify-content-center m-5 border border-primary rounded p-3">
+            <div class="form-group mr-2">
+                <label for="input32a" class="mr-2">Id Order:</label>
+                <input type="text" id="input32a" name="input3" class="form-control" placeholder="2">
+                <small id="deleteHelp" class="form-text text-muted text-center ">Write the id of existent Order to be deleted from DB</small>
+                
+                <label for="input32b" class="mr-2">Id Product:</label>
+                <input type="text" id="input32b" name="input3" class="form-control" placeholder="2">
+                <small id="deleteHelp" class="form-text text-muted text-center ">Write the id of existent Product within Order to be deleted from DB</small>
+            
+            </div>
+            <button type="submit" class="btn btn-danger">Delete Product From Order</button>
+        </form>
+        <div id="message3b" class="mt-3"></div>
+
+        <!-- Form 4 -->
+        <form id="form4" class="justify-content-center m-5 border border-primary rounded p-3">
+            <div class="form-group mr-2">
+                <span class="form-text text-muted text-center ">Show all orders saved in db</span>
+            </div>
+            <a href="http://localhost:9600/api/orders" class="btn btn-primary" target="_blank">Get Orders</a>
+        </form>
+
+        
+        
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        //Create
+        document.getElementById('form1').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const input1a = document.getElementById('input1a').value;
+            const messageDiv = document.getElementById('message1');
+            fetch('http://localhost:9600/api/orders', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ orderDate: input1a })
+            })
+            .then(response =>response.json())
+            .then(data => {
+                if(data.message == "Order created.") {
+                    messageDiv.textContent = data.message;
+                    messageDiv.className = 'alert alert-success';
+                }
+                else{
+                    messageDiv.textContent = 'Error creation Order';
+                    messageDiv.className = 'alert alert-danger';
+                }
+                console.log('Response Form 1:', data)
+            })
+            .catch(error => {console.error('Errore Form 1:', error)
+                messageDiv.textContent = 'Error creation Order';
+                messageDiv.className = 'alert alert-danger';
+            });
+        });
+        //Add Customer
+        document.getElementById('form1a').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const input11a = document.getElementById('input11a').value;
+            const input11b = document.getElementById('input11b').value;
+            const messageDiv = document.getElementById('message1a');
+            fetch('http://localhost:9600/api/orders/'+input11a+'/addCustomer/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ orderId: input11a, customerId: input11b })
+            })
+            .then(response =>response.json())
+            .then(data => {
+                if(data.message == "Customer added.") {
+                    messageDiv.textContent = data.message;
+                    messageDiv.className = 'alert alert-success';
+                }
+                else{
+                    messageDiv.textContent = 'Error adding Customer';
+                    messageDiv.className = 'alert alert-danger';
+                }
+                console.log('Response Form 1.1:', data)
+            })
+            .catch(error => {console.error('Errore Form 1.1:', error)
+                messageDiv.textContent = 'Error adding Customer';
+                messageDiv.className = 'alert alert-danger';
+            });
+        });
+
+        //Add Product
+        document.getElementById('form1b').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const input12a = document.getElementById('input12a').value;
+            const input12b = document.getElementById('input12b').value;
+            const messageDiv = document.getElementById('message1b');
+            fetch('http://localhost:9600/api/orders/'+input12a+'/addProduct/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ orderId: input12a, productId: input12b })
+            })
+            .then(response =>response.json())
+            .then(data => {
+                if(data.message == "Product added.") {
+                    messageDiv.textContent = data.message;
+                    messageDiv.className = 'alert alert-success';
+                }
+                else{
+                    messageDiv.textContent = 'Error adding Product';
+                    messageDiv.className = 'alert alert-danger';
+                }
+                console.log('Response Form 1.2:', data)
+            })
+            .catch(error => {console.error('Errore Form 1.2:', error)
+                messageDiv.textContent = 'Error adding Product';
+                messageDiv.className = 'alert alert-danger';
+            });
+        });
+        //Update
+        document.getElementById('form2').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const input2a = document.getElementById('input2a').value;
+            const input2b = document.getElementById('input2b').value;
+
+            const messageDiv = document.getElementById('message2');
+            fetch('http://localhost:9600/api/orders/'+input2a, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ id: input2a, orderDate: input2b })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.message == "Order updated.") {
+                    messageDiv.textContent = data.message;
+                    messageDiv.className = 'alert alert-success';
+                }
+                else{
+                    messageDiv.textContent = 'Error update Order';
+                    messageDiv.className = 'alert alert-danger';
+                }
+                console.log('Response Form 2:', data)})
+            .catch(error => {console.error('Errore Form 2:', error)
+                messageDiv.textContent = 'Error update Order';
+                messageDiv.className = 'alert alert-danger';
+            });
+        });
+
+        //Update Customer
+        document.getElementById('form2a').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const input21a = document.getElementById('input21a').value;
+            const input21b = document.getElementById('input21b').value;
+            const input21c = document.getElementById('input21c').value;
+
+            const messageDiv = document.getElementById('message2a');
+            fetch('http://localhost:9600/api/orders/'+input21a+'/updateCustomer/', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ id: input21a, newCustomerId: input21b, oldCustomerId: input21c })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.message == "Order updated.") {
+                    messageDiv.textContent = data.message;
+                    messageDiv.className = 'alert alert-success';
+                }
+                else{
+                    messageDiv.textContent = 'Error update Order';
+                    messageDiv.className = 'alert alert-danger';
+                }
+                console.log('Response Form 2.1:', data)})
+            .catch(error => {console.error('Errore Form 2.1:', error)
+                messageDiv.textContent = 'Error update Order';
+                messageDiv.className = 'alert alert-danger';
+            });
+        });
+
+        //Update Product
+        document.getElementById('form2b').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const input22a = document.getElementById('input22a').value;
+            const input22b = document.getElementById('input22b').value;
+            const input22c = document.getElementById('input22c').value;
+
+            const messageDiv = document.getElementById('message2b');
+            fetch('http://localhost:9600/api/orders/'+input22a+'/updateProduct/', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ id: input22a, newProductId: input22b, oldProductId: input22c })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.message == "Order updated.") {
+                    messageDiv.textContent = data.message;
+                    messageDiv.className = 'alert alert-success';
+                }
+                else{
+                    messageDiv.textContent = 'Error update Order';
+                    messageDiv.className = 'alert alert-danger';
+                }
+                console.log('Response Form 2.2:', data)})
+            .catch(error => {console.error('Errore Form 2.2:', error)
+                messageDiv.textContent = 'Error update Order';
+                messageDiv.className = 'alert alert-danger';
+            });
+        });
+
+        //Delete
+        document.getElementById('form3').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const input3 = document.getElementById('input3').value;
+            const messageDiv = document.getElementById('message3');
+            fetch('http://localhost:9600/api/orders/'+input3, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ id: input3 })
+            })
+            .then(response => response.json())
+            .then(data => {console.log('Response Form 3:', data)
+                if(data.message == "Order deleted.") {
+                    messageDiv.textContent = data.message;
+                    messageDiv.className = 'alert alert-success';
+                }
+                else{
+                    messageDiv.textContent = 'Error delete Order';
+                    messageDiv.className = 'alert alert-danger';
+                }
+            })
+            .catch(error => {console.error('Errore Form 3:', error)
+                messageDiv.textContent = 'Error delete Order';
+                messageDiv.className = 'alert alert-danger';
+            });
+        });
+
+        //Delete Customer
+        document.getElementById('form3a').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const input31a = document.getElementById('input31a').value;
+            const input31b = document.getElementById('input31b').value;
+            const messageDiv = document.getElementById('message3a');
+            fetch('http://localhost:9600/api/orders/'+input31a+'/deleteCustomer/', {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ id: input31a, customerId: input31b })
+            })
+            .then(response => response.json())
+            .then(data => {console.log('Response Form 3.1:', data)
+                if(data.message == "Customer deleted from Order.") {
+                    messageDiv.textContent = data.message;
+                    messageDiv.className = 'alert alert-success';
+                }
+                else{
+                    messageDiv.textContent = 'Error delete Customer from Order';
+                    messageDiv.className = 'alert alert-danger';
+                }
+            })
+            .catch(error => {console.error('Errore Form 3.1:', error)
+                messageDiv.textContent = 'Error delete Customer from Order';
+                messageDiv.className = 'alert alert-danger';
+            });
+        });
+
+        //Delete Product
+        document.getElementById('form3b').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const input32a = document.getElementById('input32a').value;
+            const input32b = document.getElementById('input32b').value;
+            const messageDiv = document.getElementById('message3b');
+            fetch('http://localhost:9600/api/orders/'+input32a+'/deleteProduct/', {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ id: input32a, productId: input32b })
+            })
+            .then(response => response.json())
+            .then(data => {console.log('Response Form 3.2:', data)
+                if(data.message == "Product deleted from Order.") {
+                    messageDiv.textContent = data.message;
+                    messageDiv.className = 'alert alert-success';
+                }
+                else{
+                    messageDiv.textContent = 'Error delete Product from Order';
+                    messageDiv.className = 'alert alert-danger';
+                }
+            })
+            .catch(error => {console.error('Errore Form 3.2:', error)
+                messageDiv.textContent = 'Error delete Product from Order';
+                messageDiv.className = 'alert alert-danger';
+            });
+        });
+    </script>
+</body>
+</html>

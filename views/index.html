@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form con Fetch</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+        <a class="navbar-brand" href="https://francescoct.github.io/">Francesco Catania</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">API Helper <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ProductsForms.html">Products Forms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="CustomersForms.html">Customers Forms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="OrdersForms.html">Orders Forms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://francescoct.github.io/portfolio/">Portfolio</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Titolo -->
+    <div class="container mt-5">
+        <h1 class="mb-4 text-center">API Helper</h1>
+
+        <!-- Form 1 -->
+        <form id="form1" class="justify-content-center m-5 border border-primary rounded p-3">
+            <div class="form-group mr-2">
+                <h3 class="mb-4 text-muted text-center">Product</h3>
+                <span class="form-text text-muted text-center ">List of APIs:</span>
+                <span class="form-text text-muted"><strong>Create Product</strong>: <br>  Write the name of the new Product to be saved in DB</span>
+                <span class="form-text text-muted"><strong>Get Products</strong>: <br> Show all Products saved in db</span>
+                <span class="form-text text-muted"><strong>Get Product </strong>: <br> Modify the get of Get Products to obtain the single element json</span>
+                <span class="form-text text-muted"><strong>Update Product</strong>: <br> Write id and new name of the existing Product to be savede in DB</span>
+                <span class="form-text text-muted"><strong>Delete Product</strong>: <br> Write the id of the existing Product to be eliminated from DB</span>
+            </div>
+            <a href="ProductsForms.html" class="btn btn-primary btn-success " target="_blank">Go to APIs</a>
+        </form>
+
+        <!-- Form 2 -->
+        <form id="form2" class="justify-content-center m-5 border border-primary rounded p-3">
+            <div class="form-group mr-2">
+                <h3 class="mb-4 text-muted text-center">Customer</h3>
+                <span class="form-text text-muted text-center ">List of APIs:</span>
+                <span class="form-text text-muted"><strong>Create Customer</strong>: <br>  Write the firstname, lastname and email of the new Customer to be saved in DB</span>
+                <span class="form-text text-muted"><strong>Get Customers</strong>: <br> Show all Customers saved in db</span>
+                <span class="form-text text-muted"><strong>Get Customer </strong>: <br> Modify the get of Get Customers to obtain the single element json</span>
+                <span class="form-text text-muted"><strong>Update Customer</strong>: <br> Write id and new name of the existing Customer to be savede in DB</span>
+                <span class="form-text text-muted"><strong>Delete Customer</strong>: <br> Write the id of the existing Customer to be eliminated from DB</span>
+            </div>
+            <a href="CustomersForms.html" class="btn btn-primary btn-success " target="_blank">Go to APIs</a>
+        </form>
+
+        <!-- Form 3 -->
+        <form id="form3" class="justify-content-center m-5 border border-primary rounded p-3">
+            <div class="form-group mr-2">
+                <h3 class="mb-4 text-muted text-center">Order</h3>
+                <span class="form-text text-muted text-center ">List of APIs:</span>
+                <span class="form-text text-muted"><strong>Create Order</strong>: <br>  Write the date of the new Order to be saved in DB</span>
+                <span class="form-text text-muted"><strong>Get Orders</strong>: <br> Show all Orders saved in db</span>
+                <span class="form-text text-muted"><strong>Get Order </strong>: <br> Modify the get of Get Orders to obtain the single element json</span>
+                <span class="form-text text-muted"><strong>Update Order</strong>: <br> Write id and new name of the existing Order to be savede in DB</span>
+                <span class="form-text text-muted"><strong>Delete Order</strong>: <br> Write the id of the existing Order to be eliminated from DB</span>
+            </div>
+            <a href="OrdersForms.html" class="btn btn-primary btn-success " target="_blank">Go to APIs</a>
+        </form>
+
+        
+        
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
