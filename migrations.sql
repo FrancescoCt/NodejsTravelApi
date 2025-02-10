@@ -37,7 +37,7 @@ CREATE TABLE OrderCustomers (
     Customer_Id INT,
     UNIQUE (Order_Id, Customer_Id),
     FOREIGN KEY (Order_Id) REFERENCES Orders(Id) ON DELETE CASCADE,
-    FOREIGN KEY (Customer_Id) REFERENCES Customers(Id)
+    FOREIGN KEY (Customer_Id) REFERENCES Customers(Id) ON DELETE CASCADE
 );
 
 -- Tabella di associazione per Orders e Products
@@ -47,7 +47,7 @@ CREATE TABLE OrderProducts (
     Product_Id INT,
     UNIQUE (Order_Id, Product_Id),
     FOREIGN KEY (Order_Id) REFERENCES Orders(Id) ON DELETE CASCADE,
-    FOREIGN KEY (Product_Id) REFERENCES Products(Id)
+    FOREIGN KEY (Product_Id) REFERENCES Products(Id) ON DELETE CASCADE
 );
 
 -- Esempio di inserimento dati

@@ -93,19 +93,23 @@ class Order {
                     const order = ordersMap.get(row["Id"]);
 
                     if (!order.customers.some(customer => customer.id === row["Customer_Id"])) {
-                        order.customers.push(new Customer(
+                        if (row["Customer_Id"] != null){
+                            order.customers.push(new Customer(
                             row["Customer_Id"],
                             row["FirstName"],
                             row["LastName"],
                             row["Email"]
-                        ));
+                            ));
+                        }
                     }
 
                     if (!order.products.some(product => product.id === row["Product_Id"])) {
-                        order.products.push(new Product(
-                            row["Product_Id"],
-                            row["Name"]
-                        ));
+                        if (row["Product_Id"] != null){
+                            order.products.push(new Product(
+                                row["Product_Id"],
+                                row["Name"]
+                            ));  
+                        }
                     }
                 });
 
@@ -173,19 +177,23 @@ class Order {
                 const order = ordersMap.get(row["Id"]);
 
                 if (!order.customers.some(customer => customer.id === row["Customer_Id"])) {
-                    order.customers.push(new Customer(
-                        row["Customer_Id"],
-                        row["FirstName"],
-                        row["LastName"],
-                        row["Email"]
-                    ));
+                    if (row["Customer_Id"] != null){
+                        order.customers.push(new Customer(
+                            row["Customer_Id"],
+                            row["FirstName"],
+                            row["LastName"],
+                            row["Email"]
+                        ));  
+                    }
                 }
 
                 if (!order.products.some(product => product.id === row["Product_Id"])) {
-                    order.products.push(new Product(
-                        row["Product_Id"],
-                        row["Name"]
-                    ));
+                    if(row["Product_Id"] != null){
+                        order.products.push(new Product(
+                            row["Product_Id"],
+                            row["Name"]
+                        )); 
+                    }
                 }
             });
 
@@ -194,8 +202,6 @@ class Order {
             callback(null, orders);
         });
     }
-
-    //TODO Filter by travel and filter by customer
 
     //Update
     update(callback) {
@@ -256,6 +262,28 @@ class Order {
                 return callback(err);
             }
             callback(null, results.affectedRows > 0);
+        });
+    }
+
+    static async deleteAll(){
+        const query = 'DELETE FROM '+tableName;
+
+        db.query(query, (err, results) => {
+            if (err) {
+                console.error('Error deleting '+tableName+':', err);
+                return;
+            }
+        });
+    }
+
+    static async restoreSamples(){
+        const query = "INSERT INTO "+tableName+" (orderDate) VALUES ('2022/07/24'), ('2023/04/23'), ('2024/02/22'), ('2025/01/24')";
+
+        db.query(query, (err, results) => {
+            if (err) {
+                console.error('Error restoring '+tableName+':', err);
+                return;
+            }
         });
     }
 

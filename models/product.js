@@ -63,6 +63,28 @@ class Product {
             callback(null, results.affectedRows > 0);
         });
     }
+
+    static async deleteAll(){
+        const query = 'DELETE FROM '+tableName;
+
+        db.query(query, (err, results) => {
+            if (err) {
+                console.error('Error deleting Products:', err);
+                return;
+            }
+        });
+    }
+
+    static async restoreSamples(){
+        const query = "INSERT INTO "+tableName+" (name) VALUES ('Travel_to_Italy'), ('Travel_to_France'), ('Travel_to_Germany'), ('Travel_to_Spain'), ('Travel_to_Greece')";
+
+        db.query(query, (err, results) => {
+            if (err) {
+                console.error('Error restoring Products:', err);
+                return;
+            }
+        });
+    }
 }
 
 module.exports = Product;

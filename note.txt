@@ -6,6 +6,8 @@ npm install multer --save
 npm install mysql --save
 npm install dotenv --save
 
+npm install mocha chai supertest sinon --save-dev
+
 //Disinstallare un modulo ed eliminarlo dal package
 npm uninstall mysql
 
@@ -22,4 +24,10 @@ Connected to the MySQL database.
 
 - Una prova di funzionamento può essere svolta con il seguente url di esempio preso dalla route:
 http://localhost:9600/api/products
+
+//Tests
+- Avviare tutti i test
+npx mocha tests/
+- Avviare singolo test
+npx mocha tests/productTest.js
 

@@ -65,6 +65,28 @@ class Customer {
             callback(null, results.affectedRows > 0);
         });
     }
+
+    static async deleteAll(){
+        const query = 'DELETE FROM '+tableName;
+
+        db.query(query, (err, results) => {
+            if (err) {
+                console.error('Error deleting '+tableName+':', err);
+                return;
+            }
+        });
+    }
+
+    static async restoreSamples(){
+        const query = "INSERT INTO "+tableName+" (FirstName, LastName, Email) VALUES ('John', 'Milton', 'john@gmail.com'), ('Margaret', 'Stuart', 'margaret@gmail.com'), ('Steve', 'Jobs', 'steve@gmail.com')";
+
+        db.query(query, (err, results) => {
+            if (err) {
+                console.error('Error restoring '+tableName+':', err);
+                return;
+            }
+        });
+    }
 }
 
 module.exports = Customer;
